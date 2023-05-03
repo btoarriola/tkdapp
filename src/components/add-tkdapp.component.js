@@ -49,7 +49,7 @@ export default class AddTutorial extends Component {
       description: this.state.description,
       file: this.state.file,
       published: false,
-      likes:{0,0,0,0,0,0},
+      likes:[0,0,0,0,0,0],
     };
 
     tkdappDataService.create(data)
