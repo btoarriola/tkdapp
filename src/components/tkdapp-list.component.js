@@ -63,11 +63,10 @@ export default class TkdappList extends Component {
     });
   }
   render() {
-    const { tkdapps: tkdapp, currentTkdapp, currentIndex } = this.state;
+    const { tkdapps: tkdapp, currentTkdapp } = this.state;
 
     // Define el número de columnas y filas para el grid
     const columns = 3;
-    const rows = Math.ceil(tkdapp.length / columns);
 
     // Establece los estilos para el grid y las imágenes
     const gridStyles = {
