@@ -20,4 +20,5 @@ class tkdappDataService {
   }
 }
 
-export default new tkdappDataService();
+const DataService = new tkdappDataService();
+export default DataService;
