@@ -58,7 +58,7 @@ class ReactionsMenu extends Component {
 
 
   render() {
-    const { likes, isOpen } = this.state;
+    const { likes } = this.state;
 
     return (
       <div className="reactions-menu">
