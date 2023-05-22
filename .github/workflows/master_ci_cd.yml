@@ -86,4 +86,3 @@ jobs:
           namespace: ${{secrets.OKTETO_NAMESPACE }}
           manifest: manifests/k8s.yaml
           tag: ${{ secrets.DOCKER_USERNAME }}/${{secrets.MODEL_NAME_TEST}}:${{github.sha}}
-

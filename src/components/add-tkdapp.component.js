@@ -20,7 +20,6 @@ export default class AddTutorial extends Component {
       published: false,
       file: null,
       submitted: false,
-      likes:null,
     };
   }
 
@@ -48,9 +47,7 @@ export default class AddTutorial extends Component {
       title: this.state.title,
       description: this.state.description,
       file: this.state.file,
-      published: false,
-      likes:[0,0,0,0,0,0],
-
+      published: false
     };
 
     tkdappDataService.create(data)
