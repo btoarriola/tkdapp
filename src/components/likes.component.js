@@ -52,7 +52,7 @@ class ReactionsMenu extends Component {
  
     console.log(JSON.stringify(data));
  
-    KafkaService.reaction("btoarriola",this.props.id,reaction);
+    KafkaService.reaction("btoarriola",this.props.keys,reaction);
     e.preventDefault();
   }
 
