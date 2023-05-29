@@ -28,7 +28,7 @@ class CommentBox extends Component {
   saveComment = (comment) => {
     let data = {
       id: 0,
-      status: this.props.status
+      status: 1
     };
  
     console.log(JSON.stringify(data));
