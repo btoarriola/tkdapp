@@ -113,7 +113,7 @@ export default class TkdappList extends Component {
                   )}<br/><br/>
                   <div key={index} className="tkdapp-item" style={{}}>
                     <Likes likes={tkdapp.likes} id={tkdapp.id} email={this.props.email} refreshList={this.refreshList} />
-                    <Coments />
+                    <Coments id={tkdapp.id} email={this.props.email} />
                   </div>
                 </div>
               ))}
