@@ -22,10 +22,10 @@ class CommentBox extends Component {
     });
     this.refs.commentForm.reset();
     // Llamar a la función saveComment para enviar el comentario
-    this.saveComment(e, 1,comment);
+    this.saveComment(1,comment);
   }
   
-  saveComment = (e, status, comment) => {
+  saveComment = (status, comment) => {
     let data = {
       id: 0,
       status: status
@@ -34,7 +34,6 @@ class CommentBox extends Component {
     console.log(JSON.stringify(data));
  
     KafkaService.comment(this.props.email, this.props.id, comment);
-    e.preventDefault();
   }
 
   render() {
