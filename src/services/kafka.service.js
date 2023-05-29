@@ -3,7 +3,7 @@ class KafkaService {
   url = 'https://nodeproducer-service-btoarriola.cloud.okteto.net';
 
   reaction = async (userid, objectid, reactionid) => {
-    await fetch(this.url + '/like?userid=' + userid+'&objectid='+objectid +'&reactionid='+reactionid, {
+    await fetch(this.url + '/reactions?userid=' + userid+'&objectid='+objectid +'&reactionid='+reactionid, {
       method: 'GET',
       headers: {
         'Content-type': 'application/json; charset=UTF-8',

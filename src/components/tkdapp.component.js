@@ -215,7 +215,7 @@ export default class Tkdapp extends Component {
               <div className="verPublicacion">
                 <p>{currentTkdapp.description}</p>
                 <div className="tkdapp-item" style={{}}>
-                    <Likes likes={currentTkdapp.likes} refreshList={this.refreshList} />
+                    <Likes likes={currentTkdapp.likes} id={currentTkdapp.id} refreshList={this.refreshList} />
                     <Coments />
                   </div>
               </div>

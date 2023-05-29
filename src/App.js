@@ -5,6 +5,7 @@ import React, {Component} from "react";
 
 import Addtkdapp from "./components/add-tkdapp.component";
 import TkdappList from "./components/tkdapp-list.component";
+import Login from './components/login.component';
 
 class App extends Component {
   render() {
@@ -32,7 +33,7 @@ class App extends Component {
           <h2>Poomsae social media</h2>
           </div>
           <Routes>
-            <Route path="/" element={<TkdappList />} />
+            <Route path="/" element={<Login />} />
             <Route path="add" element={<Addtkdapp />} />
             <Route path="/tkdapp" element={<TkdappList />} />
 
