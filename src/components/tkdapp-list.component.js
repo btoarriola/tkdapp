@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import TkdAppDataServices from "../services/tkdapp.services"
 import Coments from "./coments.component";
-//import Likes from "./likes.component"; 
+import Likes from "./likes.component"; 
 import Tkdapp from "./tkdapp.component"
 
 export default class TkdappList extends Component {
@@ -112,7 +112,7 @@ export default class TkdappList extends Component {
                     />
                   )}<br/><br/>
                   <div key={index} className="tkdapp-item" style={{}}>
-                    {/*<Likes likes={tkdapp.likes} id={tkdapp.id} email={this.props.email} refreshList={this.refreshList} />*/}
+                    <Likes likes={tkdapp.likes} id={tkdapp.id} email={this.props.email} refreshList={this.refreshList} />
                     <Coments id={tkdapp.id} email={this.props.email} />
                   </div>
                 </div>
