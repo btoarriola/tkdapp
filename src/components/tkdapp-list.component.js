@@ -87,7 +87,7 @@ export default class TkdappList extends Component {
       <div style={{margin: 15}}>
         <h4>Poomsae feed</h4>
         <div className="row" style={{ display: "flex", justifyContent: "space-between"}}>
-          <div className="col" style={{minWidth: '60%'}}>
+          <div className="col" style={{minWidth: '69%'}}>
             <div style={gridStyles}>
               {tkdapp.map((tkdapp, index) => (
                 <div
@@ -131,7 +131,7 @@ export default class TkdappList extends Component {
                 ) : (
                     <div>
                       <br />
-                      <p>Please click on a Poomsae...</p>
+                      <p>.</p>
                     </div>
                   )}
               </div>
