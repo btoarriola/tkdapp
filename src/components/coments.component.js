@@ -1,14 +1,36 @@
 import React, { Component } from 'react';
 import KafkaService from "../services/kafka.service";
+import axios from 'axios';
+
 
 class CommentBox extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      comments: []
+      arraycomments: []
     };
   }
+
+  componentDidMount() {
+    this.fetchComments();
+  }
   
+  fetchComments = async () => {
+    const id = this.props.id;
+    console.log("comentario ", id)
+    const uri = "https://mongoapi-service-btoarriola.cloud.okteto.net/api/comments";
+    
+    try {
+      const response = await axios.get(`${uri}/${id}`);
+      const comentarios = response.data ? response.data : [];
+  
+      this.setState({ arraycomments: comentarios });
+      console.log()
+    } catch (error) {
+      console.log('Error al obtener los comentarios:', error);
+    }
+  };
+
   handleSubmit = (event) => {
     event.preventDefault();
     const comment = this.refs.comment.value.trim();
@@ -17,7 +39,7 @@ class CommentBox extends Component {
     }
     this.setState((prevState) => {
       return {
-        comments: prevState.comments.concat(comment)
+        arraycomments: prevState.arraycomments.concat(comment)
       };
     });
     this.refs.commentForm.reset();
@@ -37,7 +59,7 @@ class CommentBox extends Component {
   }
 
   render() {
-    const { comments } = this.state;
+    const { arraycomments } = this.state;
 
     return (
       <div>
@@ -48,12 +70,15 @@ class CommentBox extends Component {
           </div>
           <button type="submit" className="btn btn-primary">Enviar</button>
         </form>
-        {comments.length > 0 ?
-          <ul className="list-group list-group-flush">
-            {comments.map((comment, index) => (
-              <li key={index} className="list-group-item">{comment}</li>
-            ))}
-          </ul>
+        {arraycomments.length > 0 ?
+          <div className="list-group list-group-flush">
+            {arraycomments.map((comentario) => (
+          <div className="commentbox" key={comentario._id} style={{backgroundColor:'#cacaca', marginBottom:4, marginTop:4, padding:3, borderRadius: '0px 15px 15px 15px'}}>
+            <p style={{fontSize:13, fontWeight:'bold', marginBottom:0}}>{comentario.userid}</p>
+            <p style={{fontSize:14, marginLeft:4,marginBottom:0}}>{comentario.message}</p>
+          </div>
+        ))}
+          </div>
           :
           <p>Aun no hay comentarios</p>
         }
