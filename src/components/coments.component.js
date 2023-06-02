@@ -23,7 +23,6 @@ class CommentBox extends Component {
     try {
       const response = await axios.get(`${uri}/${id}`);
       const comentarios = response.data ? response.data : [];
-  
       this.setState({ arraycomments: comentarios });
       console.log()
     } catch (error) {
@@ -32,6 +31,7 @@ class CommentBox extends Component {
   };
 
   handleSubmit = (event) => {
+    this.fetchComments();
     event.preventDefault();
     const comment = this.refs.comment.value.trim();
     if (!comment) {
@@ -44,18 +44,14 @@ class CommentBox extends Component {
     });
     this.refs.commentForm.reset();
     // Llamar a la función saveComment para enviar el comentario
-    this.saveComment(1,comment);
+    this.saveComment(comment);
+    this.fetchComments();
   }
   
-  saveComment = (status, comment) => {
-    let data = {
-      id: 0,
-      status: status
-    };
- 
-    console.log(JSON.stringify(data));
+  saveComment = (comment) => {
  
     KafkaService.comment(this.props.email, this.props.id, comment);
+    this.fetchComments();
   }
 
   render() {
